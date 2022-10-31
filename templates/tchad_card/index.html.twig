@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte du Tchad!{% endblock %}
+{% block body %}
+    <div class="map" id="map">
+    <div class="map__image">
+        {% include "tchad_card/tchadcard.svg" %}
+    </div>
+    <div class="map__infos">
+        <span id="infosRegion"></span>
+        <span id="populationRegion"></span>
+        <span id="thresholdRegion"></span>
+    </div>
+    </div>
+{% block javascripts %}
+	<script>
+        var map = document.querySelector('#map')
+        var paths = map.querySelectorAll('.map__image a')
+        var infosRegion = map.querySelector('.map__infos #infosRegion')
+        paths.forEach(function (path) {
+            path.addEventListener('mouseenter', function (e) {
+                var idandname = this.id
+                var id = idandname.substr(0, 5)
+                console.log(id)
+                var name = idandname.substr(6)
+                infosRegion.textContent = name
+            })
+        })
+	</script>
+{% endblock %}
+
+
+{% endblock %}
+
+
+
+

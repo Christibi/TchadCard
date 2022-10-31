@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" href="#">
+
+        {# <link rel="stylesheet" type="text/css" href="../public/cardsvg/app.css"> #}
+        <link href="{{ asset ("cardsvg/app.css") }}" rel="stylesheet">
+
+
+      
+    </head>
+
+
+    <body>
+        {% block body %}{% endblock %}
+
+    {# <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> #}
+    {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> #}
+    {# <script src="{{ asset ("/public/cardsvg/app.js") }}"></script> #}
+    </body>
+</html>
