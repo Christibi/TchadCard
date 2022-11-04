@@ -1,4 +1,4 @@
- var map = document.querySelector('#map');
+        var map = document.querySelector('#map');
         var paths = map.querySelectorAll('.map__image a');
         var infosRegion = map.querySelector('.map__infos #infosRegion');
         var populationRegion = map.querySelector('.map__infos #populationRegion');
