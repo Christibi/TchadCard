@@ -4,12 +4,19 @@
 {% block body %}
     <div class="map" id="map">
     <div class="map__image">
-        {% include "tchad_card/tchadcard.svg" %}
+        {% include "tchad_card/map.svg" %}
     </div>
     <div class="map__infos">
         <span id="infosRegion"></span> <br>
         <span id="populationRegion"></span><br>
         <span id="thresholdRegion"></span> <br>
+    </div>
+    <div>
+        <button>
+<a href="{{ path("app_education") }}" class="btn btn-primary btn-lg btn-block">Education</a>
+
+
+        </button>
     </div>
     </div>
 
