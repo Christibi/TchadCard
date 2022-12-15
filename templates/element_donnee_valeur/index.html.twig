@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for msg in app.flashes("success") %}
+
+		<div class="alert alert-success">{{ msg }}</div>
+	{% endfor %}
+	<div class="pagetitle">
+		<h1>ELEMENT DONNEE VALEUR</h1>
+		<a href="{{ path("app_importer_value") }}">
+			<span>Importer</span>
+		</a>
+	</div>
+	<!-- End Page Title -->
+	<section class="section">
+		<div class="row">
+			<div class="col-lg-12">
+
+				<div class="card">
+					<div
+						class="card-body">
+						<!-- Table with stripped rows -->
+						<table class="t2" border="1">
+							<thead>
+								<tr>
+									<th scope="col">N°</th>
+									<th scope="col">Element donnee</th>
+									<th scope="col">Province</th>
+									<th scope="col">Value</th>
+									<th scope="col">Date data</th>
+									<th scope="col">Sexe</th>
+									<th scope="col">ACTIONS</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for Valeur in MesValeurs %}
+									<tr>
+										<th>{{ loop.index}}
+										</th>
+										<td>
+											{{Valeur.elementdonnee}}
+										</td>
+										<td>
+											{{Valeur.provences}}
+										</td>
+										<td>
+											{{Valeur.value}}
+										</td>
+										<td>
+											{{Valeur.datedata}}
+										</td>
+										<td>
+											{{Valeur.sexe}}
+										</td>
+
+										<td>
+											<a href="{{ path("app_supprimer_value",{id:Valeur.id}) }}">del</a>
+											<a href="{{ path("app_editer_value",{id:Valeur.id}) }}">edit</a>
+										</td>
+									</tr>
+
+								{% endfor %}
+							</tbody>
+						</table>
+						<!-- End Table with stripped rows -->
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+{% endblock %}
+

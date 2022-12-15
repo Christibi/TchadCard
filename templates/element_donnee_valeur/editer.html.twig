@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EDITER DES DONNEES VALEURS{% endblock %}
+
+{% block body %}
+{% form_theme formulaire 'bootstrap_5_layout.html.twig' %}
+{{ form_start(formulaire) }}
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Formulaire de modification des donnees</h5>
+               <!-- No Labels Form -->
+              <form class="row g-3">
+                <div class="col-md-12">
+                  {{form(formulaire)}}
+                </div>
+                 </form><!-- End No Labels Form -->
+
+            </div>
+          </div>
+{{ form_end(formulaire) }}
+
+{% endblock %}

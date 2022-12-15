@@ -21,9 +21,13 @@ class Provinces
     #[ORM\OneToMany(mappedBy: 'province', targetEntity: Education::class)]
     private Collection $education;
 
+    #[ORM\OneToMany(mappedBy: 'provences', targetEntity: ElementDonneeValeur::class)]
+    private Collection $elementDonneeValeurs;
+
     public function __construct()
     {
         $this->education = new ArrayCollection();
+        $this->elementDonneeValeurs = new ArrayCollection();
     }
 
     public function __toString()
@@ -72,6 +76,36 @@ class Provinces
             // set the owning side to null (unless already changed)
             if ($education->getProvince() === $this) {
                 $education->setProvince(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ElementDonneeValeur>
+     */
+    public function getElementDonneeValeurs(): Collection
+    {
+        return $this->elementDonneeValeurs;
+    }
+
+    public function addElementDonneeValeur(ElementDonneeValeur $elementDonneeValeur): self
+    {
+        if (!$this->elementDonneeValeurs->contains($elementDonneeValeur)) {
+            $this->elementDonneeValeurs->add($elementDonneeValeur);
+            $elementDonneeValeur->setProvences($this);
+        }
+
+        return $this;
+    }
+
+    public function removeElementDonneeValeur(ElementDonneeValeur $elementDonneeValeur): self
+    {
+        if ($this->elementDonneeValeurs->removeElement($elementDonneeValeur)) {
+            // set the owning side to null (unless already changed)
+            if ($elementDonneeValeur->getProvences() === $this) {
+                $elementDonneeValeur->setProvences(null);
             }
         }
 
